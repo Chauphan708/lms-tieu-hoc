@@ -1,7 +1,23 @@
 -- ============================================
 -- Supabase Setup Script (All-in-One)
 -- Run this in Supabase SQL Editor
+-- WARNING: This will DELETE existing data in these tables!
 -- ============================================
+
+-- 0. Clean up old tables (to fix constraint/policy errors)
+DROP TABLE IF EXISTS honors CASCADE;
+DROP TABLE IF EXISTS comments CASCADE;
+DROP TABLE IF EXISTS posts CASCADE;
+DROP TABLE IF EXISTS rewards CASCADE;
+DROP TABLE IF EXISTS results CASCADE;
+DROP TABLE IF EXISTS assignments CASCADE;
+DROP TABLE IF EXISTS exercises CASCADE;
+DROP TABLE IF EXISTS lessons CASCADE;
+DROP TABLE IF EXISTS subjects CASCADE;
+DROP TABLE IF EXISTS class_students CASCADE;
+DROP TABLE IF EXISTS classes CASCADE;
+DROP TABLE IF EXISTS school_years CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
 
 -- 1. Users (HS + GV + Admin)
 CREATE TABLE IF NOT EXISTS users (
@@ -170,18 +186,43 @@ ALTER TABLE comments ENABLE ROW LEVEL SECURITY;
 ALTER TABLE honors ENABLE ROW LEVEL SECURITY;
 
 -- Allow all operations for anon key (school app — simplified)
+DROP POLICY IF EXISTS "Allow all for anon" ON users;
 CREATE POLICY "Allow all for anon" ON users FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON school_years;
 CREATE POLICY "Allow all for anon" ON school_years FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON classes;
 CREATE POLICY "Allow all for anon" ON classes FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON class_students;
 CREATE POLICY "Allow all for anon" ON class_students FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON subjects;
 CREATE POLICY "Allow all for anon" ON subjects FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON lessons;
 CREATE POLICY "Allow all for anon" ON lessons FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON exercises;
 CREATE POLICY "Allow all for anon" ON exercises FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON assignments;
 CREATE POLICY "Allow all for anon" ON assignments FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON results;
 CREATE POLICY "Allow all for anon" ON results FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON rewards;
 CREATE POLICY "Allow all for anon" ON rewards FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON posts;
 CREATE POLICY "Allow all for anon" ON posts FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON comments;
 CREATE POLICY "Allow all for anon" ON comments FOR ALL USING (true) WITH CHECK (true);
+
+DROP POLICY IF EXISTS "Allow all for anon" ON honors;
 CREATE POLICY "Allow all for anon" ON honors FOR ALL USING (true) WITH CHECK (true);
 
 
