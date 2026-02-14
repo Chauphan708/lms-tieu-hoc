@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Hệ thống quản lý học tập LMS cho học sinh tiểu học - Giao diện vui nhộn, tích hợp AI">
+  <title>📚 LMS Tiểu Học - Học mà Vui!</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" async></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" async></script>
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='28' font-size='28'>📚</text></svg>">
+</head>
+
+<body>
+
+  <!-- ========== LOGIN PAGE ========== -->
+  <div class="login-page" id="login-page">
+    <div class="login-card">
+      <div class="logo-emoji">📚</div>
+      <h1>LMS Tiểu Học</h1>
+      <p class="subtitle">Học mà Vui - Vui mà Học! 🌈</p>
+      <div class="login-error" id="login-error">❌ Sai tài khoản hoặc mật khẩu!</div>
+      <form id="login-form">
+        <div class="form-group">
+          <label>👤 Tài khoản</label>
+          <input type="text" id="login-username" placeholder="Nhập tài khoản..." required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label>🔒 Mật khẩu</label>
+          <input type="password" id="login-password" placeholder="Nhập mật khẩu..." required
+            autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-primary btn-full">🚀 Đăng nhập</button>
+      </form>
+      <p style="margin-top: 18px; font-size: 0.78rem; color: var(--text-light);">
+        Demo: <strong>giaovien / 123456</strong> hoặc <strong>an123 / 111111</strong>
+      </p>
+    </div>
+  </div>
+
+  <!-- ========== MAIN APP LAYOUT ========== -->
+  <button class="mobile-toggle" onclick="App.toggleSidebar()">☰</button>
+  <div class="sidebar-overlay" onclick="App.toggleSidebar()"></div>
+
+  <div class="app-layout" id="app-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-emoji" id="sidebar-avatar">📚</div>
+        <h2 id="sidebar-user-name">LMS Tiểu Học</h2>
+        <div class="user-info" id="sidebar-user-role">Đang tải...</div>
+      </div>
+      <nav class="sidebar-nav">
+        <div id="nav-items"></div>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="nav-item" onclick="App.logout()">
+          <span class="nav-icon">🚪</span><span>Đăng xuất</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="main-content">
+      <div class="empty-state">
+        <div class="empty-emoji">⏳</div>
+        <h3>Đang tải...</h3>
+      </div>
+    </main>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/ai.js"></script>
+  <script src="js/gamification.js"></script>
+  <script src="js/exercises.js"></script>
+  <script src="js/honors.js"></script>
+  <script src="js/bulletin.js"></script>
+  <script src="js/app.js"></script>
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="js/grading.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/app2.js"></script>
+</body>
+
+</html>

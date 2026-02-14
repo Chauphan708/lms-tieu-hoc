@@ -1,0 +1,17 @@
+{
+  "name": "lms-tieu-hoc",
+  "version": "2.0.0",
+  "description": "Hệ thống quản lý học tập LMS cho học sinh tiểu học - Tích hợp AI, Gamification",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "keywords": ["lms", "education", "elementary-school", "vietnam"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.21.0"
+  }
+}
